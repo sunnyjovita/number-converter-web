@@ -27,6 +27,20 @@ function integerCheck(inputsArray){
     }
 }
 
+
+// function autoFill() {
+//     document.getElementById('input1').value = "My Text Input";
+//     document.getElementById('input2').value = "Dropdown2";
+
+//     var radioElements = document.getElementsByName("input3");
+
+//     for (var i=0; i<radioElements.length; i++) {
+//         if (radioElements[i].getAttribute('value') == 'Radio3') {
+//         radioElements[i].checked = true;
+//         }
+//     }
+// }
+
 function startConversion(dec, bin, oct, one, two){
     var decimal = document.getElementById(dec).value;
     var binary = document.getElementById(bin).value;
