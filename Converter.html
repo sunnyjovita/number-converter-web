@@ -7,20 +7,21 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Converter</title>
-    <link rel="stylesheet" href="css/nicepage.css" media="screen">
-<link rel="stylesheet" href="css/Converter.css" media="screen">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/Converter.css" media="screen">
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="js/converter.js" defer=""></script>
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
     
     <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"url": "index.html",
-		"logo": "images/github_PNG28.png"
-}</script>
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "",
+      "url": "index.html",
+      "logo": "images/github_PNG28.png"
+}   </script>
     <meta property="og:title" content="Converter">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#478ac9">
@@ -34,34 +35,32 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <h2 class="u-text u-text-1">Start Converting</h2>
         <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form">
+          <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form"
+          onsubmit="return startConversion('decimal-input', 'binary-input', 'octal-input', 'ones-input', 'twos-input');">
             <div class="u-form-group u-form-name">
-              <label for="name-3b9a" class="u-form-control-hidden u-label">Name</label>
-              <input type="text" placeholder="Decimal" id="name-3b9a" name="decimal" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <label for="name-3b9a" class="u-form-control-hidden u-label"></label>
+              <input type="text" placeholder="Decimal" id="decimal-input" name="decimal" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-form-group">
               <label for="email-3b9a" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Binary" id="email-3b9a" name="binary" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <input type="text" placeholder="Binary" id="binary-input" name="binary" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-form-group u-form-group-3">
               <label for="text-d2dd" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Octal" id="text-d2dd" name="octal" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <input type="text" placeholder="Octal" id="octal-input" name="octal" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-form-group u-form-group-4">
               <label for="text-7e43" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="1's Complement" id="text-7e43" name="onescomplement" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <input type="text" placeholder="1's Complement" id="ones-input" name="onescomplement" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-fc5c" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="2's Complement" id="text-fc5c" name="twoscomplement" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <input type="text" placeholder="2's Complement" id="twos-input" name="twoscomplement" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-align-center u-form-group u-form-submit">
               <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-radius-50 u-btn-1">Calculate</a>
               <input type="submit" value="calculate" class="u-form-control-hidden">
             </div>
-            <div class="u-form-send-message u-form-send-success"> Results Calculated! </div>
-            <div class="u-form-send-error u-form-send-message"> Error. Try again. </div>
-            <input type="hidden" value="" name="recaptchaResponse">
           </form>
         </div>
       </div>
