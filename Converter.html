@@ -36,14 +36,19 @@
         <h2 class="u-text u-text-1">Start Converting (8 Bit)</h2>
         <div class="u-form u-form-1">
           <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form"
-          onsubmit="return startConversion('decimal-input', 'binary-input', 'octal-input', 'ones-input', 'twos-input');">
+          id="converter-form"
+          onsubmit="return startConversion('decimal-input', 'hex-input', 'binary-input', 'octal-input', 'ones-input', 'twos-input');">
             <div class="u-form-group u-form-name">
               <label for="name-3b9a" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="Decimal (0 - 255)" id="decimal-input" name="decimal" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
+            <div class="u-form-group u-form-group-2">
+              <label for="text-d2dd" class="u-form-control-hidden u-label"></label>
+              <input type="text" placeholder="Hex (-FF - FF)" id="hex-input" name="hex" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
             <div class="u-form-group">
               <label for="email-3b9a" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Binary (11111111 Max)" id="binary-input" name="binary" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <input type="text" placeholder="Binary (1/0)" id="binary-input" name="binary" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-form-group u-form-group-3">
               <label for="text-d2dd" class="u-form-control-hidden u-label"></label>
@@ -60,6 +65,10 @@
             <div class="u-align-center u-form-group u-form-submit">
               <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-radius-50 u-btn-1">Calculate</a>
               <input type="submit" value="calculate" class="u-form-control-hidden">
+            </div>
+            <div class="u-align-center u-form-group u-form-reset">
+              <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-radius-50 u-btn-1">Reset</a>
+              <input type="button" value="reset" class="u-form-control-hidden" onclick="resetFields()">
             </div>
           </form>
         </div>
