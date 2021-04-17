@@ -65,7 +65,13 @@ function decToBinary(stringdec) {
 }
 
 // Binary to Decimal
-
+function binaryToDecimal(stringdec){
+    if(wholeNum(stringdec)){
+      return parseInt(stringdec, 2).toString(10);
+    }else{
+      return;
+    }
+}
 
 // Decimal to Octal conversion
 function decToOctal(stringdec){
@@ -106,18 +112,33 @@ function octalToDecimal(input){
 
 // Decimal to ones complement
 function decToFirst(stringdec){
-    if(wholeNum(stringdec)){
-    // dec to binary
-        var binary = decToBinary(stringdec);   
-    // reverse the binary value to 1s
-        var reverse = binary.split('').map(x => 
-        {
-            return (x == 1) ? 0 : 1;
-        }).join('');
+  
+    if (parseInt(stringdec) > 127 || parseInt(stringdec) < -127){
+        return "Number out of range!";
+    } else {
+        if(wholeNum(stringdec)){
+            var bits = 8;
+            if(stringdec < 0){
+                var intdec = parseInt(stringdec);
+                var positivebin = Math.abs(intdec);
+                console.log(positivebin);
+                var binary = (parseInt(positivebin)).toString(2);
+            
+                var reverse = '';
+                for(var i = 0; i<binary.length; i++){
+                    reverse += (binary[i] == '0' ? '1' : '0');
+                }
+            return reverse.padStart(bits || result.length, '1');
+            
+            } else {
+                var binary = (parseInt(stringdec)).toString(2);
+                var bits = binary.padStart(bits || binary.length, '0');
 
-        return reverse;
-    }else{
-        return;
+                return bits;
+            }
+        } else {
+            return;
+        }
     }
 }
 
@@ -202,11 +223,22 @@ function converter(input, inputIndex) {
             return [decimalResult, hexadecimalResult, binaryResult, octalResult, onesResult, twosResult];
         // Binary
         case 2:
-
-            break;
+            var decimalResult = binaryToDecimal(input);
+            var hexadecimalResult = decimalToHex(binaryToDecimal(input));
+            var binaryResult = input;
+            var octalResult = decToOctal(binaryToDecimal(input));
+            var onesResult = decToFirst(binaryToDecimal(input));
+            var twosResult = decimalto2scomplement(binaryToDecimal(input));
+            return [decimalResult, hexadecimalResult, binaryResult, octalResult, onesResult, twosResult];
         // Octal
         case 3:
-            break;
+            var decimalResult = binaryToDecimal(input);
+            var hexadecimalResult = decimalToHex(binaryToDecimal(input));
+            var binaryResult = input;
+            var octalResult = input;
+            var onesResult = decToFirst(binaryToDecimal(input));
+            var twosResult = decimalto2scomplement(binaryToDecimal(input));
+            return [decimalResult, hexadecimalResult, binaryResult, octalResult, onesResult, twosResult];
         // Ones Complement
         case 4:
             break;
