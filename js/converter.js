@@ -1,118 +1,134 @@
 // Whole number check
 function wholeNum(stringdec)
 {
-   var n = parseFloat(stringdec);
-   var result = (n - Math.floor(n)) !== 0; 
+  var n = parseFloat(stringdec);
+  var result = (n - Math.floor(n)) !== 0; 
    
   if (result){
     alert("Number is not a whole number.");
     return false;
-   }else{
-     return true;
+  } else {
+    return true;
   }
 }
 
 //Hex checker
 function hexChecker(stringhex){
-    regexp = /^-?[0-9a-fA-F]+$/;
-     
-           if (regexp.test(stringhex))
-             {
-               return true;
-             }
-           else
-             {
-               alert("Not valid hexadecimal number.");
-               return false;
-             }
-   }
+  regexp = /^-?[0-9a-fA-F]{2}$/;
+  
+  if (regexp.test(stringhex)){
+    return true;
+  } else {
+    alert("Not valid hexadecimal number.");
+    return false;
+  }
+}
 
 // Decimal to Hexadecimal
 function decimalToHex(stringdec){
+  if (parseInt(stringdec) > 255 || parseInt(stringdec) < -255){
+    alert("Decimal out of range!")
+  } else {
     if(wholeNum(stringdec)){
-   
-       return parseInt(stringdec).toString(16);
-     }else{
-       return;
-     }
- }
-
- // Hexadecimal to Decimal
- function hexToDecimal(hexNumber){
-    if (hexChecker(hexNumber)){
-      return parseInt(hexNumber, 16).toString();
+      return parseInt(stringdec).toString(16);
     } else {
       return;
     }
+  }
+}
+
+// Hexadecimal to Decimal
+function hexToDecimal(hexNumber){
+  if (hexChecker(hexNumber)){
+    return parseInt(hexNumber, 16).toString();
+  } else {
+    return;
+  }
 } 
 
 // Decimal to Binary
 function decToBinary(stringdec) {
-    if(wholeNum(stringdec)){
-      let x = parseInt(stringdec)
+  if(wholeNum(stringdec)){
+    
+    let x = parseInt(stringdec)
+    if (x > 255 || x < -255){
+      alert("Number out of range!");
+    } else {
       let bin = 0;
       let rem, i = 1, step = 1;
       while (x != 0) {
-          rem = x % 2;
-          x = parseInt(x / 2);
-          bin = bin + rem * i;
-          i = i * 10;
+        rem = x % 2;
+        x = parseInt(x / 2);
+        bin = bin + rem * i;
+        i = i * 10;
       }
       return bin.toString();
-    }else{
-      return;
     }
+  } else {
+    return;
+  }
 }
 
 // Binary to Decimal
 function binaryToDecimal(stringdec){
-    if(wholeNum(stringdec)){
+  if(wholeNum(stringdec)){
+    if (parseInt(stringdec) > 11111111 || parseInt(stringdec) < -11111111){
+      alert("Number out of range!");
+    } else {
       return parseInt(stringdec, 2).toString(10);
-    }else{
-      return;
     }
+  } else {
+    return;
+  }
 }
 
 // Decimal to Octal conversion
 function decToOctal(stringdec){
-    if(wholeNum(stringdec)){
-        return (parseInt(stringdec)).toString(8);
-    }else{
-        return;
+  if (wholeNum(stringdec)){
+    if (parseInt(stringdec) > 255 || parseInt(stringdec) < -255){
+      alert("Number out of range");
+    } else {
+      return (parseInt(stringdec)).toString(8);
     }
+  } else {
+      return;
+  }
 }
 
 // Octal to Decimal conversion
 function octalToDecimal(input){
     if(wholeNum(stringdec)){
-      let num = input;
-      let dec_value = 0;
- 
-    // Initializing base value to 1, i.e 8^0
-      let base = 1;
- 
-      let temp = num;
-      while (temp) {
- 
-        // Extracting last digit
-        let last_digit = temp % 10;
-        temp = Math.floor(temp / 10);
- 
-        // Multiplying last digit with appropriate
-        // base value and adding it to dec_value
-        dec_value += last_digit * base;
- 
-        base = base * 8;
-       }
-    return dec_value;
-    }else{
+      if(parseInt(input) > 377 || parseInt(input) < -377){
+        alert("Number out of range!")
+      } else {
+        let num = input;
+        let dec_value = 0;
+  
+      // Initializing base value to 1, i.e 8^0
+        let base = 1;
+  
+        let temp = num;
+        while (temp) {
+  
+          // Extracting last digit
+          let last_digit = temp % 10;
+          temp = Math.floor(temp / 10);
+  
+          // Multiplying last digit with appropriate
+          // base value and adding it to dec_value
+          dec_value += last_digit * base;
+  
+          base = base * 8;
+        }
+      return dec_value;
+      }
+    } else {
       return;
     }
 }
 
 // Decimal to ones complement
 function decToFirst(stringdec){
-  
     if (parseInt(stringdec) > 127 || parseInt(stringdec) < -127){
         return "Number out of range!";
     } else {
