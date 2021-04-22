@@ -115,34 +115,13 @@ function decToOctal(stringdec){
 
 // Octal to Decimal conversion
 function octalToDecimal(input){
-    if(wholeNum(input)){
-      if(parseInt(input) > 377 || parseInt(input) < -377){
-        alert("Number out of range!")
-      } else {
-        let num = input;
-        let dec_value = 0;
-  
-      // Initializing base value to 1, i.e 8^0
-        let base = 1;
-  
-        let temp = num;
-        while (temp) {
-  
-          // Extracting last digit
-          let last_digit = temp % 10;
-          temp = Math.floor(temp / 10);
-  
-          // Multiplying last digit with appropriate
-          // base value and adding it to dec_value
-          dec_value += last_digit * base;
-  
-          base = base * 8;
-        }
-      return dec_value.toString();
-      }
-    } else {
+  regexp =/^-?[0-7]+$/;
+  if (regexp.test(input)){
+      return parseInt(input, 8).toString();
+  } else {
+      alert("Please input a valid octal number");
       return;
-    }
+  }
 }
 
 // Decimal to ones complement
