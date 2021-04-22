@@ -70,9 +70,17 @@ function decToBinary(stringdec) {
     if (x > 255 || x < -255){
       alert("Number out of range!");
     } else {
-      var binary = (parseInt(stringdec)).toString(2);
-      var binarynum = binary.padStart(bits || bin.length, '0');
-      return binarynum.toString();
+      if(parseInt(stringdec) < 0){
+         var binary = Math.abs(parseInt(stringdec)).toString(2);
+         var binarynum = binary.padStart(bits || bin.length, '0');
+         var min = "-";
+         var negativebinary = min.concat(binarynum);
+         return negativebinary;
+      }else{
+         var binary = (parseInt(stringdec)).toString(2);
+         var binarynum = binary.padStart(bits || bin.length, '0');
+         return binarynum;
+      }
     }
   } else {
     return;
