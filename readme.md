@@ -3,7 +3,9 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-p-tools is a simple converter site written in HTML and javascript
+p-tools is a simple fully client-sided programming converter site written in HTML and javascript.
+
+Check it out [here](https://p-tools.online)
 
 - Enter an input
 - Press enter or click 'Convert'
